@@ -1,74 +1,69 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 
 export default function Home() {
-  const [formData, setFormData] = useState({
-    nombre: "",
-    email: "",
-    telefono: "",
-    ciudad: "",
-    fechaNacimiento: "",
-    sexo: "",
-    estadoCivil: "",
-    interes: "",
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Datos enviados:", formData);
-  };
-
   return (
-    <div className="flex flex-col items-center p-4 md:p-8">
-      <header className="w-full max-w-4xl text-center py-6">
-        <h1 className="text-3xl font-bold text-green-600">Mutual Riocuartense</h1>
-        <p className="text-gray-900">
-          Beneficios en salud, farmacias y más. Crecemos con vos 💚
-        </p>
-      </header>
-
-      <section className="w-full max-w-md bg-white shadow-md rounded-lg p-6 my-6">
-        <h2 className="text-xl font-semibold text-green-600 text-center">Consultanos</h2>
-        <form className="mt-4 flex flex-col" onSubmit={handleSubmit}>
-          <input name="nombre" type="text" placeholder="Nombre completo" className="border p-3 rounded mb-3 text-gray-650 text-lg" onChange={handleChange} />
-          <input name="email" type="email" placeholder="Correo electrónico" className="border p-3 rounded mb-3 text-gray-650 text-lg" onChange={handleChange} />
-          <input name="telefono" type="tel" placeholder="Teléfono de contacto" className="border p-3 rounded mb-3 text-gray-650 text-lg" onChange={handleChange} />
-          <input name="ciudad" type="text" placeholder="Ciudad de residencia" className="border p-3 rounded mb-3 text-gray-650 text-lg" onChange={handleChange} />
-
-          {/* Fecha de nacimiento con aclaración */}
-          <label className="text-gray-700 text-lg mb-1">Fecha de nacimiento (DD/MM/AAAA):</label>
-          <input name="fechaNacimiento" type="date" className="border p-3 rounded mb-3 text-gray-700 text-lg" onChange={handleChange} />
-
-          <select name="sexo" className="border p-3 rounded mb-3 text-gray-700 text-lg" onChange={handleChange}>
-            <option value="">Seleccioná tu sexo</option>
-            <option value="Hombre">Hombre</option>
-            <option value="Mujer">Mujer</option>
-            <option value="Otro">Otro</option>
-          </select>
-
-          <select name="estadoCivil" className="border p-3 rounded mb-3 text-gray-700 text-lg" onChange={handleChange}>
-            <option value="">Seleccioná tu estado civil</option>
-            <option value="Soltero">Soltero</option>
-            <option value="Casado">Casado</option>
-            <option value="Divorciado">Divorciado</option>
-            <option value="Viudo">Viudo</option>
-          </select>
-
-          <select name="interes" className="border p-3 rounded mb-3 text-gray-700 text-lg" onChange={handleChange}>
-            <option value="">¿Para quién es el plan?</option>
-            <option value="Para mí">Para mí solo</option>
-            <option value="Para familia">Para toda la familia</option>
-            <option value="Para hijos">Para mis hijos</option>
-          </select>
-
-          <button type="submit" className="bg-green-600 text-white py-2 rounded mt-2 hover:bg-green-700 text-lg">Enviar</button>
-        </form>
+    <>
+      {/* Hero */}
+      <section className="text-center">
+        <p className="text-2xl text-gray-700 py-6">Crecemos con vos 💚</p>
       </section>
-    </div>
+
+      {/* Servicios */}
+      <section id="servicios" className="py-12 px-4 max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl font-semibold text-mr-primary mb-6">Nuestros Servicios</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div>
+            <p className="text-gray-700">Consultas médicas y especialidades</p>
+          </div>
+          <div>
+            <p className="text-gray-700">Descuentos en farmacias</p>
+          </div>
+          <div>
+            <p className="text-gray-700">Emergencias y enfermería</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Beneficios */}
+      <section id="beneficios" className="py-12 px-4 max-w-4xl mx-auto text-center bg-white bg-opacity-80">
+        <h2 className="text-2xl font-semibold text-mr-primary mb-6">Nuestros Beneficios</h2>
+        <ul className="text-gray-700 space-y-2">
+          <li>✅ Descuentos en farmacias (50%)</li>
+          <li>✅ Consultas médicas con descuento</li>
+          <li>✅ Prácticas especializadas (30%)</li>
+          <li>✅ Obstetricia en el Instituto Médico</li>
+          <li>✅ Servicios de Perpetual</li>
+          <li>✅ Emergencias, urgencias y enfermería a domicilio</li>
+        </ul>
+        <p className="mt-4 text-gray-600">¡Pronto nuestra app para vos!</p>
+      </section>
+
+      {/* Formulario y Testimonios */}
+      <section id="contacto" className="py-12 px-4 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white bg-opacity-80 p-6 rounded-lg">
+          <h2 className="text-xl font-semibold text-mr-primary text-center mb-6">Consultanos</h2>
+          <form action="https://docs.google.com/forms/d/e/[TU_FORM_ID]/formResponse" method="POST" className="flex flex-col gap-4">
+            <input type="text" name="entry.987654321" placeholder="Nombre" className="border p-2 rounded" required />
+            <input type="email" name="entry.456789123" placeholder="Email" className="border p-2 rounded" required />
+            <input type="tel" name="entry.321654987" placeholder="Teléfono" className="border p-2 rounded" required />
+            <input type="text" name="entry.654321789" placeholder="Ciudad" className="border p-2 rounded" required />
+            <button type="submit" className="bg-mr-primary text-white py-2 rounded hover:bg-mr-secondary">
+              Enviar
+            </button>
+          </form>
+        </div>
+        <div>
+          <h2 className="text-xl font-semibold text-mr-primary text-center mb-6">Testimonios</h2>
+          <div className="space-y-4">
+            <div>
+              <p className="text-gray-700">"Excelente atención y descuentos." - María G.</p>
+            </div>
+            <div>
+              <p className="text-gray-700">"Siempre confiables en emergencias." - Juan P.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

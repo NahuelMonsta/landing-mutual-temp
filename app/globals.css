@@ -2,20 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #000000;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
+  background: url('/LogosImagenes/fondoDegrade01.png') center/cover no-repeat;
+  backdrop-filter: blur(10px);
   color: var(--foreground);
-  font-family: var(--font-montserrat); /* Cambia a Montserrat */
+  font-family: var(--font-montserrat);
 }
