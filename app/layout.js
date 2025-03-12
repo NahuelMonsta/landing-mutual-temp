@@ -1,3 +1,4 @@
+// app/layout.js
 "use client";
 
 import "./globals.css";
@@ -16,6 +17,9 @@ export default function RootLayout({ children }) {
 
   return (
     <html lang="es">
+      <head>
+        <link rel="icon" href="/icon/logo+normal" type="image/png" />
+      </head>
       <body className={`${montserrat.variable} with-png flex flex-col min-h-screen`}>
         {/* Encabezado fijo */}
         <header className="fixed top-0 left-0 w-full bg-mr-primary shadow-md z-10 p-4 flex justify-between items-center">
@@ -25,7 +29,7 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* Menú desktop centrado */}
-          <nav className="hidden md:flex flex-1 justify-center space-x-6">
+          <nav className="hidden md:flex flex-1 justify-center space-x-8 text-lg">
             <a href="#servicios" className="text-white hover:text-mr-secondary">Servicios</a>
             <a href="#beneficios" className="text-white hover:text-mr-secondary">Beneficios</a>
             <a href="#contacto" className="text-white hover:text-mr-secondary">Contacto</a>
