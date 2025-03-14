@@ -5,7 +5,7 @@ export const metadata = {
 };
 
 export default function Home() {
-  const textWithQuotes = "Texto con \"comillas\" sin escapar"; // Línea 45
+  
   const testimonial1 = "\"Excelente atención y descuentos.\" - María G."; // Línea 173
   const testimonial2 = "\"Siempre confiables en emergencias.\" - Juan P."; // Línea 176
 
@@ -44,7 +44,7 @@ export default function Home() {
           Nuestros planes están pensados para brindarte soluciones simples, económicas y sin complicaciones.
         </p>
       </section>
-      <p>{textWithQuotes}</p> {/* Línea 45 */}
+     
 
       {/* Beneficios */}
       <section id="beneficios" className="py-12 px-4 max-w-4xl mx-auto text-center bg-gray-100 rounded-lg shadow-md">
