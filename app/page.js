@@ -1,12 +1,14 @@
 // app/page.js
-import React from "react";
-
 export const metadata = {
   title: "Mutual Riocuartense",
   description: "Landing page de Mutual Riocuartense",
 };
 
 export default function Home() {
+  const textWithQuotes = "Texto con \"comillas\" sin escapar"; // Línea 45
+  const testimonial1 = "\"Excelente atención y descuentos.\" - María G."; // Línea 173
+  const testimonial2 = "\"Siempre confiables en emergencias.\" - Juan P."; // Línea 176
+
   return (
     <>
       {/* Hero */}
@@ -42,7 +44,7 @@ export default function Home() {
           Nuestros planes están pensados para brindarte soluciones simples, económicas y sin complicaciones.
         </p>
       </section>
-      <p>Texto con \"comillas\" sin escapar</p> {/* Línea 45 corregida */}
+      <p>{textWithQuotes}</p> {/* Línea 45 */}
 
       {/* Beneficios */}
       <section id="beneficios" className="py-12 px-4 max-w-4xl mx-auto text-center bg-gray-100 rounded-lg shadow-md">
@@ -170,10 +172,10 @@ export default function Home() {
           <h2 className="text-xl font-semibold gradient-title text-center mb-6">Testimonios</h2>
           <div className="space-y-4">
             <div>
-              <p className="text-gray-700">\"Excelente atención y descuentos.\" - María G.</p> {/* Línea 173 corregida */}
+              <p className="text-gray-700">{testimonial1}</p> {/* Línea 173 */}
             </div>
             <div>
-              <p className="text-gray-700">\"Siempre confiables en emergencias.\" - Juan P.</p> {/* Línea 176 corregida */}
+              <p className="text-gray-700">{testimonial2}</p> {/* Línea 176 */}
             </div>
           </div>
         </div>
