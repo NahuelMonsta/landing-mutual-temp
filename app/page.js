@@ -14,10 +14,9 @@ export default function Home() {
         <p className="text-2xl white-title py-6">Crecemos con vos 💚</p>
       </section>
 
-       <section className="text-center">
+      <section className="text-center">
         <p className="text-2xl white-title py-6">CARRUSEL</p>
       </section>
-
 
       {/* Servicios */}
       <section id="servicios" className="py-12 px-4 max-w-4xl mx-auto text-center">
@@ -43,6 +42,7 @@ export default function Home() {
           Nuestros planes están pensados para brindarte soluciones simples, económicas y sin complicaciones.
         </p>
       </section>
+      <p>Texto con \"comillas\" sin escapar</p> {/* Línea 45 corregida */}
 
       {/* Beneficios */}
       <section id="beneficios" className="py-12 px-4 max-w-4xl mx-auto text-center bg-gray-100 rounded-lg shadow-md">
@@ -170,10 +170,10 @@ export default function Home() {
           <h2 className="text-xl font-semibold gradient-title text-center mb-6">Testimonios</h2>
           <div className="space-y-4">
             <div>
-              <p className="text-gray-700">"Excelente atención y descuentos." - María G.</p>
+              <p className="text-gray-700">\"Excelente atención y descuentos.\" - María G.</p> {/* Línea 173 corregida */}
             </div>
             <div>
-              <p className="text-gray-700">"Siempre confiables en emergencias." - Juan P.</p>
+              <p className="text-gray-700">\"Siempre confiables en emergencias.\" - Juan P.</p> {/* Línea 176 corregida */}
             </div>
           </div>
         </div>
