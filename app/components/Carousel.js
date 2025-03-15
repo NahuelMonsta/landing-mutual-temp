@@ -4,33 +4,101 @@
 import { useState, useEffect } from "react";
 
 export default function Carousel() {
-  const carouselImages = [
-    "/carrusel/imagen1.jpg",
-    "/carrusel/imagen2.jpg",
-    "/carrusel/imagen3.jpg",
-  ];
-
+  const [carouselImages, setCarouselImages] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
-    }, 3000); // Cambia cada 3 segundos
-    return () => clearInterval(interval);
+    fetch("/api/carrusel")
+      .then((res) => res.json())
+      .then((data) => {
+        if (Array.isArray(data) && data.length > 0) {
+          setCarouselImages(data);
+        } else {
+          setCarouselImages(["/carrusel/fallback.jpg"]);
+        }
+      })
+      .catch(() => setCarouselImages(["/carrusel/fallback.jpg"]));
+  }, []);
+
+  useEffect(() => {
+    if (carouselImages.length > 0) {
+      const interval = setInterval(() => {
+        setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+      }, 3000);
+      return () => clearInterval(interval);
+    }
   }, [carouselImages.length]);
 
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? carouselImages.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % carouselImages.length);
+  };
+
+  const handleTouchStart = (e) => {
+    setTouchStart(e.type === "touchstart" ? e.touches[0].clientX : e.clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    if (touchStart === null) return;
+    const currentTouch = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
+    setTouchEnd(currentTouch);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart === null || touchEnd === null) return;
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (distance > minSwipeDistance) {
+      goToNext();
+    } else if (distance < -minSwipeDistance) {
+      goToPrevious();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
-    <section className="relative w-full max-w-4xl mx-auto h-64 md:h-96 overflow-hidden">
+    <section
+      className="relative w-full h-72 md:h-[32rem] overflow-hidden cursor-grab active:cursor-grabbing"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+      onMouseDown={handleTouchStart}
+      onMouseMove={handleTouchMove}
+      onMouseUp={handleTouchEnd}
+      onMouseLeave={handleTouchEnd}
+    >
       {carouselImages.map((src, index) => (
         <img
           key={index}
           src={src}
           alt={`Carrusel imagen ${index + 1}`}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ${
+          className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ${
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
         />
       ))}
+      <button
+        onClick={goToPrevious}
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 text-white text-2xl opacity-75 hover:opacity-100 transition"
+      >
+        ◀
+      </button>
+      <button
+        onClick={goToNext}
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 text-white text-2xl opacity-75 hover:opacity-100 transition"
+      >
+        ▶
+      </button>
       <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
         {carouselImages.map((_, index) => (
           <button
