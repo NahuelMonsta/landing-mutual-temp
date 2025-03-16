@@ -1,7 +1,7 @@
-// app/components/Carousel.js
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image"; // Importar el componente Image
 
 export default function Carousel() {
   const [carouselImages, setCarouselImages] = useState([]);
@@ -42,19 +42,20 @@ export default function Carousel() {
   };
 
   const handleTouchStart = (e) => {
-    setTouchStart(e.type === "touchstart" ? e.touches[0].clientX : e.clientX);
+    const x = e.type === "touchstart" ? e.touches[0].clientX : e.clientX;
+    setTouchStart(x);
   };
 
   const handleTouchMove = (e) => {
     if (touchStart === null) return;
-    const currentTouch = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
-    setTouchEnd(currentTouch);
+    const x = e.type === "touchmove" ? e.touches[0].clientX : e.clientX;
+    setTouchEnd(x);
   };
 
   const handleTouchEnd = () => {
     if (touchStart === null || touchEnd === null) return;
     const distance = touchStart - touchEnd;
-    const minSwipeDistance = 50;
+    const minSwipeDistance = 30;
 
     if (distance > minSwipeDistance) {
       goToNext();
@@ -68,7 +69,7 @@ export default function Carousel() {
 
   return (
     <section
-      className="relative w-full h-72 md:h-[32rem] overflow-hidden cursor-grab active:cursor-grabbing"
+      className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden cursor-grab active:cursor-grabbing"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -78,13 +79,16 @@ export default function Carousel() {
       onMouseLeave={handleTouchEnd}
     >
       {carouselImages.map((src, index) => (
-        <img
+        <Image
           key={index}
           src={src}
           alt={`Carrusel imagen ${index + 1}`}
-          className={`absolute top-0 left-0 w-full h-full object-contain transition-opacity duration-1000 ${
+          fill // Usamos fill para que ocupe el contenedor padre
+          className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ${
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
+          quality={75} // Ajusta la calidad para optimizar (opcional)
+          priority={index === 0} // Carga prioritaria solo para la primera imagen
         />
       ))}
       <button
