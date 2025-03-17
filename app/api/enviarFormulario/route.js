@@ -4,9 +4,8 @@ import { google } from "googleapis";
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { nombre, email, telefono, ciudad, fechaNacimiento, sexo, estadoCivil, interes } = body;
+    const { nombre, edad, email, telefono, interes, paraQuien, horario } = body;
 
-    // Autenticación con Google Sheets
     const auth = new google.auth.GoogleAuth({
       credentials: {
         client_email: process.env.GOOGLE_CLIENT_EMAIL,
@@ -18,13 +17,12 @@ export async function POST(request) {
     const sheets = google.sheets({ version: "v4", auth });
     const spreadsheetId = process.env.SPREADSHEET_ID;
 
-    // Agregar datos a la hoja
     await sheets.spreadsheets.values.append({
       spreadsheetId,
-      range: "Sheet1!A1", // Ajusta el nombre de la hoja si es diferente
+      range: "Hoja 1!A1", // Cambiado de "Sheet1!A1" a "Hoja 1!A1"
       valueInputOption: "RAW",
       resource: {
-        values: [[nombre, email, telefono, ciudad, fechaNacimiento, sexo, estadoCivil, interes]],
+        values: [[nombre, edad, email, telefono, interes, paraQuien, horario]],
       },
     });
 
