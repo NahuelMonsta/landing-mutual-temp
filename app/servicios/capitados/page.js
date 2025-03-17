@@ -1,3 +1,6 @@
+// app/servicios/capitados/page.js
+import Link from "next/link";
+
 export const metadata = {
   title: "Plan Capitados - Mutual Riocuartense",
   description: "Detalles del Plan Capitados de Perpetual",
@@ -42,9 +45,15 @@ export default function Capitados() {
           </ul>
         </div>
 
-        <p className="text-gray-700 text-center">
+        <p className="text-gray-700 text-center mb-6">
           Para más información y afiliación, comunicate con nosotros.
         </p>
+        <Link
+          href="/#contacto"
+          className="inline-block bg-mr-primary text-white py-2 px-4 rounded hover:bg-mr-secondary transition"
+        >
+          Consultar Ahora
+        </Link>
       </div>
     </main>
   );

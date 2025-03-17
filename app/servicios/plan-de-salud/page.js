@@ -1,3 +1,6 @@
+// app/servicios/plan-de-salud/page.js
+import Link from "next/link";
+
 export const metadata = {
   title: "Plan de Salud - Mutual Riocuartense",
   description: "Detalles del Plan de Salud con Descuentos",
@@ -51,9 +54,15 @@ export default function PlanDeSalud() {
         <h2 className="text-xl font-semibold gradient-title mb-4">¿Cómo acceder al Plan de Salud?</h2>
         <p className="text-gray-700 mb-2">Completá el formulario de inscripción.</p>
         <p className="text-gray-700 mb-2">Presentate con DNI en los centros adheridos para acceder a los descuentos.</p>
-        <p className="text-gray-700">
+        <p className="text-gray-700 mb-6">
           Consultanos para conocer la cotización según tu edad y grupo familiar.
         </p>
+        <Link
+          href="/#contacto"
+          className="inline-block bg-mr-primary text-white py-2 px-4 rounded hover:bg-mr-secondary transition"
+        >
+          Consultar Ahora
+        </Link>
       </div>
     </main>
   );

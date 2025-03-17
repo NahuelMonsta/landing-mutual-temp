@@ -1,7 +1,8 @@
+// app/components/Carousel.js
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image"; // Importar el componente Image
+import Image from "next/image";
 
 export default function Carousel() {
   const [carouselImages, setCarouselImages] = useState([]);
@@ -69,7 +70,7 @@ export default function Carousel() {
 
   return (
     <section
-      className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden cursor-grab active:cursor-grabbing"
+      className="relative w-full h-[600px] overflow-hidden cursor-grab active:cursor-grabbing"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -83,12 +84,12 @@ export default function Carousel() {
           key={index}
           src={src}
           alt={`Carrusel imagen ${index + 1}`}
-          fill // Usamos fill para que ocupe el contenedor padre
+          fill
           className={`absolute top-0 left-0 object-cover transition-opacity duration-1000 ${
             index === currentIndex ? "opacity-100" : "opacity-0"
           }`}
-          quality={75} // Ajusta la calidad para optimizar (opcional)
-          priority={index === 0} // Carga prioritaria solo para la primera imagen
+          quality={75}
+          priority={index === 0}
         />
       ))}
       <button
