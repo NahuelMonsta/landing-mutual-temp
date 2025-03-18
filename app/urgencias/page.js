@@ -1,4 +1,6 @@
 // app/urgencias/page.js
+import Link from "next/link";
+
 export const metadata = {
   title: "Urgencias - Mutual Riocuartense",
   description: "Servicios de emergencias, urgencias, traslados y enfermería a domicilio",
@@ -22,22 +24,14 @@ export default function Urgencias() {
               <p className="text-gray-700 mb-4 italic">
                 Situaciones críticas que requieren atención inmediata porque comprometen la vida del paciente, como:
               </p>
-              <ul className="text-gray-700 text-left space-y-2 pl-4">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Paro cardíaco
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Pérdida de conocimiento
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Dificultad respiratoria grave
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Accidentes graves
-                </li>
+              <ul className="text-gray-700 text-left space-y-2 pl-4 list-disc">
+                <li>Paro cardíaco</li>
+                <li>Pérdida de conocimiento</li>
+                <li>Dificultad respiratoria grave</li>
+                <li>Accidentes graves</li>
               </ul>
               <p className="text-gray-700 mt-4">
-                📞 <strong>Llamar al 4620141 / 4642100</strong>
+                <strong>Llamar al 4620141 / 4642100</strong>
               </p>
             </div>
 
@@ -47,11 +41,13 @@ export default function Urgencias() {
               <p className="text-gray-700 mb-4 italic">
                 Brindamos traslados programados y de urgencia dentro del área de Río Cuarto.
               </p>
-              <p className="text-gray-700">
+              <p className="text-gray-700 text-left">
                 Hasta 5 traslados mensuales sin costo (los siguientes con coseguro).
               </p>
+              \n 
+              \n 
               <p className="text-gray-700 mt-4">
-                📞 <strong>Llamar al 4620141 / 4642100</strong>
+                <strong>Llamar al 4620141 / 4642100</strong>
               </p>
             </div>
           </div>
@@ -64,22 +60,14 @@ export default function Urgencias() {
               <p className="text-gray-700 mb-4 italic">
                 Problemas de salud que, sin ser una emergencia, requieren atención rápida para evitar complicaciones, como:
               </p>
-              <ul className="text-gray-700 text-left space-y-2 pl-4">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Fiebres altas persistentes
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Dolores intensos
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Crisis asmáticas o alérgicas
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Heridas que necesitan sutura
-                </li>
+              <ul className="text-gray-700 text-left space-y-2 pl-4 list-disc">
+                <li>Fiebres altas persistentes</li>
+                <li>Dolores intensos</li>
+                <li>Crisis asmáticas o alérgicas</li>
+                <li>Heridas que necesitan sutura</li>
               </ul>
               <p className="text-gray-700 mt-4">
-                📞 <strong>Llamar al 4620141 / 4642100</strong>
+                <strong>Llamar al 4620141 / 4642100</strong>
               </p>
             </div>
 
@@ -89,19 +77,13 @@ export default function Urgencias() {
               <p className="text-gray-700 mb-4 italic">
                 Atención profesional para procedimientos como:
               </p>
-              <ul className="text-gray-700 text-left space-y-2 pl-4">
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Aplicación de inyecciones
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Control de presión y glucosa
-                </li>
-                <li className="flex items-center">
-                  <span className="w-2 h-2 bg-[#F5874F] rounded-full mr-2"></span> Curaciones y cambios de vendajes
-                </li>
+              <ul className="text-gray-700 text-left space-y-2 pl-4 list-disc">
+                <li>Aplicación de inyecciones</li>
+                <li>Control de presión y glucosa</li>
+                <li>Curaciones y cambios de vendajes</li>
               </ul>
               <p className="text-gray-700 mt-4">
-                📞 <strong>Llamar al 4629755</strong>
+                <strong>Llamar al 4629755</strong>
               </p>
             </div>
           </div>
@@ -110,9 +92,15 @@ export default function Urgencias() {
         {/* Cómo acceder */}
         <div className="mt-12">
           <h2 className="text-2xl font-semibold gradient-title mb-4">¿Cómo acceder al servicio?</h2>
-          <p className="text-gray-700">
+          <p className="text-gray-700 mb-6">
             Presentate con tu DNI, aclarando que sos socio/a de Perpetual.
           </p>
+          <Link
+            href="/#contacto"
+            className="inline-block bg-mr-primary text-white py-2 px-4 rounded hover:bg-mr-secondary transition"
+          >
+            Consultar Ahora
+          </Link>
         </div>
       </div>
     </main>
