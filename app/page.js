@@ -1,52 +1,80 @@
 // app/page.js
-import Carousel from "./components/Carousel";
-import Formulario from "./components/Formulario"; // Importamos el componente
 import Link from "next/link";
+import Carousel from "/app/components/Carousel.js";
+import Formulario from "/app/components/Formulario.js";
 
 export const metadata = {
-  title: "Mutual Riocuartense",
-  description: "Landing page de Mutual Riocuartense",
+  title: "Mutual Riocuartense - Beneficios en Salud que Cumplen",
+  description: "Una mutual de Río Cuarto que ofrece soluciones reales en salud, sin letra chica",
 };
 
 export default function Home() {
-  const testimonial1 = "\"Excelente atención y descuentos.\" - María G.";
-  const testimonial2 = "\"Siempre confiables en emergencias.\" - Juan P.";
-
   return (
-    <>
+    <main className="text-gray-900">
+      <section className="py-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+            Una mutual que está presente, que cumple y que piensa en su gente
+          </h1>
+          <p className="text-lg md:text-xl mb-6 drop-shadow-md">
+            En la Mutual Riocuartense, hacemos las cosas simples y claras. Brindamos beneficios en salud que realmente funcionan, sin vueltas ni letra chica. Estamos cerca de nuestros socios, ofreciendo descuentos en consultas, farmacias y servicios esenciales, porque entendemos lo que necesitan.
+          </p>
+          <p className="text-lg md:text-xl mb-8 drop-shadow-md">
+            Somos de Río Cuarto, conocemos a nuestra gente y cumplimos con lo que prometemos. Acá no hay sorpresas, solo soluciones reales para cuidar tu bienestar y el de tu familia.
+          </p>
+          <Link
+            href="/#contacto"
+            className="inline-block bg-white text-mr-primary py-3 px-8 rounded-full font-semibold hover:bg-gray-100 transition shadow-md hover:shadow-lg"
+          >
+            Consultá Ahora
+          </Link>
+        </div>
+      </section>
+
       <Carousel />
-      <section id="servicios" className="py-12 px-4 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold white-title mb-6">Servicios que te Acompañan</h2>
-        <p className="text-lg white-title mb-6">
-          En la Mutual Riocuartense ofrecemos soluciones accesibles y efectivas para el cuidado de tu salud y bienestar.
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Link href="/servicios/capitados" className="block bg-white shadow-lg p-6 rounded-lg hover:bg-gray-100 transition">
-            <h3 className="text-xl font-semibold gradient-title mb-4">Plan Capitados de Perpetual</h3>
-            <p className="text-gray-700">Conocé más sobre este servicio integral.</p>
-          </Link>
-          <Link href="/servicios/plan-de-salud" className="block bg-white shadow-lg p-6 rounded-lg hover:bg-gray-100 transition">
-            <h3 className="text-xl font-semibold gradient-title mb-4">Plan de Salud con Descuentos</h3>
-            <p className="text-gray-700">Descubrí esta alternativa accesible.</p>
-          </Link>
-        </div>
-      </section>
-      <section className="py-12 px-4 max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl font-semibold white-title mb-6">Novedades</h2>
-        <p className="text-gray-700 white-title">Próximamente: Novedades desde Instagram</p>
-      </section>
-      <section id="contacto" className="py-12 px-4 max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div>
-          <Formulario /> {/* Reemplazamos el formulario anterior */}
-        </div>
-        <div>
-          <h2 className="text-xl font-semibold gradient-title text-center mb-6">Testimonios</h2>
-          <div className="space-y-4">
-            <div><p className="text-gray-700">{testimonial1}</p></div>
-            <div><p className="text-gray-700">{testimonial2}</p></div>
+
+      <section className="py-16 px-4 max-w-4xl mx-auto text-center">
+        <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-semibold gradient-title mb-8">¿Por qué elegirnos?</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Descuentos en Farmacias</h3>
+              <p className="text-gray-700">50% off en medicamentos en más de 30 farmacias adheridas.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Emergencias Cubiertas</h3>
+              <p className="text-gray-700">Atención médica inmediata y traslados sin costo.</p>
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">Planes Flexibles</h3>
+              <p className="text-gray-700">Opciones para vos, tu familia o seres queridos.</p>
+            </div>
           </div>
         </div>
       </section>
-    </>
+
+      {/* Testimonios más compactos */}
+      <section className="py-12 px-4 max-w-4xl mx-auto text-center bg-gray-100">
+        <h2 className="text-3xl font-semibold gradient-title mb-6">Qué dicen nuestros socios</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="bg-white p-4 rounded-lg shadow">
+            <p className="text-gray-700 mb-2">
+              "Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses."
+            </p>
+            <p className="font-semibold text-gray-800">María G. - Río Cuarto</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow">
+            <p className="text-gray-700 mb-2">
+              "El servicio de emergencias me salvó en un momento crítico. Excelente atención."
+            </p>
+            <p className="font-semibold text-gray-800">Juan P. - Las Higueras</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacto" className="py-16 px-4">
+        <Formulario />
+      </section>
+    </main>
   );
 }

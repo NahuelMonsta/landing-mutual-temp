@@ -1,5 +1,6 @@
 // app/farmacias/page.js
 import Link from "next/link";
+import Image from "next/image";
 
 export const metadata = {
   title: "Farmacias Adheridas - Mutual Riocuartense",
@@ -32,7 +33,21 @@ export default function Farmacias() {
           ></iframe>
         </div>
 
-        {/* Botón para descargar el PDF */}
+        {/* Listado en JPG */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold gradient-title mb-4">Listado de Farmacias</h2>
+          <Image
+            src="/documentos/listado-de-farmacias.jpg"
+            alt="Listado de farmacias adheridas"
+            width={800}
+            height={600}
+            className="mx-auto rounded-lg"
+            quality={85}
+            loading="lazy"
+          />
+        </div>
+
+        {/* Botón para descargar */}
         <Link
           href="/documentos/listado-de-farmacias.jpg"
           download="Listado de Farmacias Adheridas"
