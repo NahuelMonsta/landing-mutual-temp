@@ -17,7 +17,7 @@ export default function Urgencias() {
         "Dificultad respiratoria grave",
         "Accidentes graves",
       ],
-      contact: "Llamar al 4620141 / 4642100",
+      contact: ["4620141", "4642100"], // Separamos los números para hacerlos clicables individualmente
     },
     {
       title: "Urgencias Médicas",
@@ -28,13 +28,13 @@ export default function Urgencias() {
         "Crisis asmáticas o alérgicas",
         "Heridas que necesitan sutura",
       ],
-      contact: "Llamar al 4620141 / 4642100",
+      contact: ["4620141", "4642100"],
     },
     {
       title: "Traslados",
       description: "Brindamos traslados programados y de urgencia dentro del área de Río Cuarto. Hasta 5 traslados mensuales sin costo (los siguientes con coseguro).",
       examples: [],
-      contact: "Llamar al 4620141 / 4642100",
+      contact: ["4620141", "4642100"],
     },
     {
       title: "Enfermería a Domicilio",
@@ -44,7 +44,7 @@ export default function Urgencias() {
         "Control de presión y glucosa",
         "Curaciones y cambios de vendajes",
       ],
-      contact: "Llamar al 4629755",
+      contact: ["4629755"],
     },
   ];
 
@@ -69,7 +69,34 @@ export default function Urgencias() {
                   ))}
                 </ul>
               )}
-              <p className="text-gray-800 font-semibold mt-2">{servicio.contact}</p>
+              <div className="text-gray-800 font-semibold mt-2">
+                {servicio.contact.length > 1 ? (
+                  <p>
+                    Llamar al{" "}
+                    {servicio.contact.map((number, i) => (
+                      <span key={i}>
+                        <a
+                          href={`tel:${number}`}
+                          className="text-mr-primary hover:underline"
+                        >
+                          {number}
+                        </a>
+                        {i < servicio.contact.length - 1 && " / "}
+                      </span>
+                    ))}
+                  </p>
+                ) : (
+                  <p>
+                    Llamar al{" "}
+                    <a
+                      href={`tel:${servicio.contact[0]}`}
+                      className="text-mr-primary hover:underline"
+                    >
+                      {servicio.contact[0]}
+                    </a>
+                  </p>
+                )}
+              </div>
             </div>
           ))}
         </div>
