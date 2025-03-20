@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es">
       <body className={`${montserrat.variable} with-png flex flex-col min-h-screen`}>
-        <header className="fixed top-0 left-0 w-full bg-mr-primary shadow-md z-10 p-4 flex justify-between items-center">
+        <header className="fixed top-0 left-0 w-full bg-mr-primary shadow-md z-50 p-4 flex justify-between items-center">
           <div className="flex items-center">
             <Link href="/">
               <Image
@@ -100,41 +100,14 @@ export default function RootLayout({ children }) {
             </Link>
           </nav>
           <div className="hidden md:flex items-center space-x-4">
-            <a
-              href="https://facebook.com/MutualRiocuartense/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/LogosImagenes/facebookNegro.png"
-                alt="Facebook"
-                width={24}
-                height={24}
-              />
+            <a href="https://facebook.com/MutualRiocuartense/" target="_blank" rel="noopener noreferrer">
+              <Image src="/LogosImagenes/facebookNegro.png" alt="Facebook" width={24} height={24} />
             </a>
-            <a
-              href="https://www.instagram.com/mutualriocuartense/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/LogosImagenes/instagram.png"
-                alt="Instagram"
-                width={24}
-                height={24}
-              />
+            <a href="https://www.instagram.com/mutualriocuartense/" target="_blank" rel="noopener noreferrer">
+              <Image src="/LogosImagenes/instagram.png" alt="Instagram" width={24} height={24} />
             </a>
-            <a
-              href="https://wa.me/543584637428"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                src="/LogosImagenes/whatsapp.png"
-                alt="WhatsApp"
-                width={24}
-                height={24}
-              />
+            <a href="https://wa.me/543584637428" target="_blank" rel="noopener noreferrer">
+              <Image src="/LogosImagenes/whatsapp.png" alt="WhatsApp" width={24} height={24} />
             </a>
           </div>
           <div className="md:hidden">

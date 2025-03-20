@@ -11,7 +11,8 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="text-gray-900">
-      <section className="py-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
+      {/* Hero con padding-top suficiente para evitar superposición */}
+      <section className="pt-24 pb-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
             Una mutual que está presente, que cumple y que piensa en su gente
@@ -53,7 +54,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonios más compactos */}
       <section className="py-12 px-4 max-w-4xl mx-auto text-center bg-gray-100">
         <h2 className="text-3xl font-semibold gradient-title mb-6">Qué dicen nuestros socios</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
