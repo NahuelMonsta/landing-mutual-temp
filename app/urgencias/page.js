@@ -32,7 +32,7 @@ export default function Urgencias() {
     },
     {
       title: "Traslados",
-      description: "Brindamos traslados programados y de urgencia dentro del área de Río Cuarto." 
+      description: "Brindamos traslados programados y de urgencia dentro del área de Río Cuarto.", // Añadí la coma aquí
       examples: [
         " Hasta 5 traslados mensuales sin costo (los siguientes con coseguro).",
       ],
