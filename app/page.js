@@ -59,13 +59,13 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 mb-2">
-              "Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses."
+               \"Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses." \
             </p>
             <p className="font-semibold text-gray-800">María G. - Río Cuarto</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 mb-2">
-              "El servicio de emergencias me salvó en un momento crítico. Excelente atención."
+               \"El servicio de emergencias me salvó en un momento crítico. Excelente atención." \
             </p>
             <p className="font-semibold text-gray-800">Juan P. - Las Higueras</p>
           </div>
