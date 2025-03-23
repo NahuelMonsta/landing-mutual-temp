@@ -153,7 +153,7 @@ export default function Formulario() {
             className="w-full p-2 border rounded text-gray-900"
             disabled={isLoading}
           >
-            <option value="">Selecciona un plan</option> {/* Cambiado aquí */}
+            <option value="">Seleccioná un plan</option> {/* Cambiado aquí */}
             <option value="Plan Capitados">Plan Capitados</option>
             <option value="Plan de Salud">Plan de Salud</option>
           </select>
