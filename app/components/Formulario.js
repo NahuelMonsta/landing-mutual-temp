@@ -31,7 +31,7 @@ export default function Formulario() {
     if (!formData.telefono || !/^\d{6,}$/.test(formData.telefono)) {
       newErrors.telefono = "Ingresá un teléfono válido (solo números, mínimo 6 dígitos)";
     }
-    if (!formData.interes) newErrors.interes = "Seleccioná un interés";
+    if (!formData.interes) newErrors.interes = "Seleccioná un plan";
     if (!formData.paraQuien) newErrors.paraQuien = "Seleccioná para quién es";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -153,8 +153,8 @@ export default function Formulario() {
             className="w-full p-2 border rounded text-gray-900"
             disabled={isLoading}
           >
-            <option value="">Seleccionar Interés</option>
-            <option value="Plan Capitados">Plan Capitados</option> {/* Cambiado aquí */}
+            <option value="">Selecciona un plan</option> {/* Cambiado aquí */}
+            <option value="Plan Capitados">Plan Capitados</option>
             <option value="Plan de Salud">Plan de Salud</option>
           </select>
           {errors.interes && <p className="text-red-500 text-sm">{errors.interes}</p>}
