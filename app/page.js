@@ -4,21 +4,20 @@ import Carousel from "/app/components/Carousel.js";
 import Formulario from "/app/components/Formulario.js";
 
 export const metadata = {
-  title: "Mutual Riocuartense - Beneficios en Salud que Cumplen",
+  title: "Mutual Riocuantense - Beneficios en Salud que Cumplen",
   description: "Una mutual de Río Cuarto que ofrece soluciones reales en salud, sin letra chica",
 };
 
 export default function Home() {
   return (
     <main className="text-gray-900">
-      {/* Hero con padding-top suficiente para evitar superposición */}
       <section className="pt-24 pb-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
             Una mutual que está presente, que cumple y que piensa en su gente
           </h1>
           <p className="text-lg md:text-xl mb-6 drop-shadow-md">
-            En la Mutual Riocuartense, hacemos las cosas simples y claras. Brindamos beneficios en salud que realmente funcionan, sin vueltas ni letra chica. Estamos cerca de nuestros socios, ofreciendo descuentos en consultas, farmacias y servicios esenciales, porque entendemos lo que necesitan.
+            En la Mutual Riocuantense, hacemos las cosas simples y claras. Brindamos beneficios en salud que realmente funcionan, sin vueltas ni letra chica. Estamos cerca de nuestros socios, ofreciendo descuentos en consultas, farmacias y servicios esenciales, porque entendemos lo que necesitan.
           </p>
           <p className="text-lg md:text-xl mb-8 drop-shadow-md">
             Somos de Río Cuarto, conocemos a nuestra gente y cumplimos con lo que prometemos. Acá no hay sorpresas, solo soluciones reales para cuidar tu bienestar y el de tu familia.
@@ -39,15 +38,15 @@ export default function Home() {
           <h2 className="text-3xl font-semibold gradient-title mb-8">¿Por qué elegirnos?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Descuentos en Farmacias</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">DESCUENTOS EN FARMACIAS</h3>
               <p className="text-gray-700">50% off en medicamentos en más de 30 farmacias adheridas.</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Emergencias Cubiertas</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">EMERGENCIAS CUBIERTAS</h3>
               <p className="text-gray-700">Atención médica inmediata y traslados sin costo.</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">Planes Flexibles</h3>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2">PLANES FLEXIBLES</h3>
               <p className="text-gray-700">Opciones para vos, tu familia o seres queridos.</p>
             </div>
           </div>
@@ -59,13 +58,13 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 mb-2">
-              \"Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses.\"
+              «Gracias a Mutual Riocuantense, tengo tranquilidad y ahorro todos los meses.»
             </p>
             <p className="font-semibold text-gray-800">María G. - Río Cuarto</p>
           </div>
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 mb-2">
-              \"El servicio de emergencias me salvó en un momento crítico. Excelente atención.\"
+              «El servicio de emergencias me salvó en un momento crítico. Excelente atención.»
             </p>
             <p className="font-semibold text-gray-800">Juan P. - Las Higueras</p>
           </div>

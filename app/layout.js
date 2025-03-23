@@ -1,3 +1,4 @@
+// app/layout.js
 "use client";
 
 import "./globals.css";
@@ -26,11 +27,11 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body className={`${montserrat.variable} with-png flex flex-col min-h-screen`}>
         <header className="fixed top-0 left-0 w-full bg-mr-primary shadow-md z-50 p-4 flex justify-between items-center">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-4"> {/* Agregado space-x-4 */}
             <Link href="/">
               <Image
                 src="/LogosImagenes/logocompleto.png"
-                alt="Mutual Riocuartense"
+                alt="Mutual Riocuantense"
                 width={300}
                 height={57}
                 className="cursor-pointer"
@@ -54,7 +55,7 @@ export default function RootLayout({ children }) {
                     className="block px-4 py-2 hover:bg-mr-secondary"
                     onClick={() => setIsServicesOpen(false)}
                   >
-                    Capitados
+                    Plan Capitados {/* Cambiado aquí */}
                   </Link>
                   <Link
                     href="/servicios/plan-de-salud"
@@ -100,10 +101,10 @@ export default function RootLayout({ children }) {
             </Link>
           </nav>
           <div className="hidden md:flex items-center space-x-4">
-            <a href="https://facebook.com/MutualRiocuartense/" target="_blank" rel="noopener noreferrer">
+            <a href="https://facebook.com/MutualRiocuantense/" target="_blank" rel="noopener noreferrer">
               <Image src="/LogosImagenes/facebookNegro.png" alt="Facebook" width={24} height={24} />
             </a>
-            <a href="https://www.instagram.com/mutualriocuartense/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/mutualriocuantense/" target="_blank" rel="noopener noreferrer">
               <Image src="/LogosImagenes/instagram.png" alt="Instagram" width={24} height={24} />
             </a>
             <a href="https://wa.me/543584637428" target="_blank" rel="noopener noreferrer">
@@ -135,7 +136,7 @@ export default function RootLayout({ children }) {
                           setIsServicesOpen(false);
                         }}
                       >
-                        Capitados
+                        Plan Capitados {/* Cambiado aquí */}
                       </Link>
                       <Link
                         href="/servicios/plan-de-salud"
@@ -204,7 +205,7 @@ export default function RootLayout({ children }) {
               <p>Belgrano 17, piso 11</p>
               <p>Río Cuarto, Argentina</p>
               <p>+54 358 463-7428</p>
-              <p>mutuallariocuartense@gmail.com</p>
+              <p>mutuallariocuantense@gmail.com</p>
             </div>
             <div className="flex flex-col items-center min-w-[100px] flex-1">
               <Image

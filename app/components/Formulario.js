@@ -1,3 +1,4 @@
+// app/components/Formulario.js
 "use client";
 
 import { useState } from "react";
@@ -13,8 +14,8 @@ export default function Formulario() {
     horario: "",
   });
   const [errors, setErrors] = useState({});
-  const [isLoading, setIsLoading] = useState(false); // Nuevo estado para "cargando"
-  const [submitMessage, setSubmitMessage] = useState(""); // Para mostrar el resultado
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   const validateForm = () => {
     const newErrors = {};
@@ -41,54 +42,47 @@ export default function Formulario() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
+    if (!validateForm()) return;
 
-  if (!validateForm()) return;
+    setIsLoading(true);
+    setSubmitMessage("");
 
-  console.log("Iniciando envío, isLoading debería ser true");
-  setIsLoading(true); // Activar "cargando"
-  setSubmitMessage(""); // Limpiar mensaje anterior
-
-  // Forzar actualización de la UI con un pequeño retraso
-  await new Promise(resolve => setTimeout(resolve, 100));
-
-  const horarioEnvio = new Date().toLocaleString("es-AR", {
-    timeZone: "America/Argentina/Cordoba",
-  });
-  const dataToSend = { ...formData, horario: horarioEnvio };
-
-  try {
-    const response = await fetch("/api/enviarFormulario", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dataToSend),
+    const horarioEnvio = new Date().toLocaleString("es-AR", {
+      timeZone: "America/Argentina/Cordoba",
     });
+    const dataToSend = { ...formData, horario: horarioEnvio };
 
-    const data = await response.json();
-
-    if (response.ok) {
-      setSubmitMessage("¡Gracias por tu consulta a La Mutual Riocuartense ! Nos comunicaremos pronto.");
-      setFormData({
-        nombre: "",
-        edad: "",
-        email: "",
-        telefono: "",
-        interes: "",
-        paraQuien: "",
-        horario: "",
+    try {
+      const response = await fetch("/api/enviarFormulario", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dataToSend),
       });
-      setErrors({});
-    } else {
-      setSubmitMessage(data.error || "Error al enviar el formulario. Intentá de nuevo.");
+
+      const data = await response.json();
+      if (response.ok) {
+        setSubmitMessage("¡Gracias por tu consulta a La Riocuartense Mutual! Nos comunicaremos pronto.");
+        setFormData({
+          nombre: "",
+          edad: "",
+          email: "",
+          telefono: "",
+          interes: "",
+          paraQuien: "",
+          horario: "",
+        });
+        setErrors({});
+      } else {
+        setSubmitMessage(data.error || "Error al enviar el formulario");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setSubmitMessage("Error al enviar el formulario. Intentá de nuevo.");
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    console.error("Error:", error);
-    setSubmitMessage("Error al enviar el formulario. Intentá de nuevo.");
-  } finally {
-    console.log("Envío terminado, isLoading debería ser false");
-    setIsLoading(false); // Quitar "cargando"
-  }
-};
+  };
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white bg-opacity-80 rounded-lg shadow-lg">
@@ -105,7 +99,7 @@ export default function Formulario() {
             onChange={handleChange}
             required
             className="w-full p-2 border rounded text-gray-900 placeholder-gray-500"
-            disabled={isLoading} // Deshabilitar mientras carga
+            disabled={isLoading}
           />
           {errors.nombre && <p className="text-red-500 text-sm">{errors.nombre}</p>}
         </div>
@@ -160,7 +154,7 @@ export default function Formulario() {
             disabled={isLoading}
           >
             <option value="">Seleccionar Interés</option>
-            <option value="Capitados">Capitados</option>
+            <option value="Plan Capitados">Plan Capitados</option> {/* Cambiado aquí */}
             <option value="Plan de Salud">Plan de Salud</option>
           </select>
           {errors.interes && <p className="text-red-500 text-sm">{errors.interes}</p>}
@@ -192,7 +186,7 @@ export default function Formulario() {
         </button>
       </form>
       {submitMessage && (
-        <p className={`text-center mt-4 ${submitMessage.includes("éxito") ? "text-green-500" : "text-red-500"}`}>
+        <p className={`text-center mt-4 ${submitMessage.includes("Gracias") ? "text-green-500" : "text-red-500"}`}>
           {submitMessage}
         </p>
       )}
