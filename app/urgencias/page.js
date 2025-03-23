@@ -32,8 +32,10 @@ export default function Urgencias() {
     },
     {
       title: "Traslados",
-      description: "Brindamos traslados programados y de urgencia dentro del área de Río Cuarto. Hasta 5 traslados mensuales sin costo (los siguientes con coseguro).",
-      examples: [],
+      description: "Brindamos traslados programados y de urgencia dentro del área de Río Cuarto." 
+      examples: [
+        " Hasta 5 traslados mensuales sin costo (los siguientes con coseguro).",
+      ],
       contact: ["4620141", "4642100"],
     },
     {
