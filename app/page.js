@@ -4,7 +4,7 @@ import Carousel from "/app/components/Carousel.js";
 import Formulario from "/app/components/Formulario.js";
 
 export const metadata = {
-  title: "Mutual Riocuantense - Beneficios en Salud que Cumplen",
+  title: "Mutual Riocuartense - Beneficios en Salud que Cumplen",
   description: "Una mutual de Río Cuarto que ofrece soluciones reales en salud, sin letra chica",
 };
 
@@ -13,13 +13,13 @@ export default function Home() {
     <main className="text-gray-900">
       <section className="pt-24 pb-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">
             Una mutual que está presente, que cumple y que piensa en su gente
           </h1>
-          <p className="text-lg md:text-xl mb-6 drop-shadow-md">
-            En la Mutual Riocuantense, hacemos las cosas simples y claras. Brindamos beneficios en salud que realmente funcionan, sin vueltas ni letra chica. Estamos cerca de nuestros socios, ofreciendo descuentos en consultas, farmacias y servicios esenciales, porque entendemos lo que necesitan.
+          <p className="text-base md:text-lg mb-6 drop-shadow-md">
+            En la Mutual Riocuartense, hacemos las cosas simples y claras. Brindamos beneficios en salud que realmente funcionan, sin vueltas ni letra chica. Estamos cerca de nuestros socios, ofreciendo descuentos en consultas, farmacias y servicios esenciales, porque entendemos lo que necesitan.
           </p>
-          <p className="text-lg md:text-xl mb-8 drop-shadow-md">
+          <p className="text-base md:text-lg mb-8 drop-shadow-md">
             Somos de Río Cuarto, conocemos a nuestra gente y cumplimos con lo que prometemos. Acá no hay sorpresas, solo soluciones reales para cuidar tu bienestar y el de tu familia.
           </p>
           <Link
@@ -58,7 +58,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white p-4 rounded-lg shadow">
             <p className="text-gray-700 mb-2">
-              «Gracias a Mutual Riocuantense, tengo tranquilidad y ahorro todos los meses.»
+              «Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses.»
             </p>
             <p className="font-semibold text-gray-800">María G. - Río Cuarto</p>
           </div>
