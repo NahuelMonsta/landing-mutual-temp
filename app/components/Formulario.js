@@ -1,4 +1,3 @@
-// app/components/Formulario.js
 "use client";
 
 import { useState } from "react";
@@ -11,44 +10,28 @@ export default function Formulario() {
     telefono: "",
     interes: "",
     paraQuien: "",
-    horario: "", // Se llena automáticamente
+    horario: "",
   });
-
   const [errors, setErrors] = useState({});
+  const [isLoading, setIsLoading] = useState(false); // Nuevo estado para "cargando"
+  const [submitMessage, setSubmitMessage] = useState(""); // Para mostrar el resultado
 
   const validateForm = () => {
     const newErrors = {};
-
-    // Nombre: solo letras y espacios
     if (!formData.nombre || !/^[a-zA-Z\s]+$/.test(formData.nombre)) {
       newErrors.nombre = "Ingresá un nombre válido (solo letras y espacios)";
     }
-
-    // Edad: número entre 0 y 120
     if (!formData.edad || isNaN(formData.edad) || formData.edad < 0 || formData.edad > 120) {
       newErrors.edad = "Ingresá una edad válida (0-120)";
     }
-
-    // Email: formato válido
     if (!formData.email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       newErrors.email = "Ingresá un email válido";
     }
-
-    // Teléfono: solo números, al menos 6 dígitos
     if (!formData.telefono || !/^\d{6,}$/.test(formData.telefono)) {
       newErrors.telefono = "Ingresá un teléfono válido (solo números, mínimo 6 dígitos)";
     }
-
-    // Interés: requerido
-    if (!formData.interes) {
-      newErrors.interes = "Seleccioná un interés";
-    }
-
-    // Para quién: requerido
-    if (!formData.paraQuien) {
-      newErrors.paraQuien = "Seleccioná para quién es";
-    }
-
+    if (!formData.interes) newErrors.interes = "Seleccioná un interés";
+    if (!formData.paraQuien) newErrors.paraQuien = "Seleccioná para quién es";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -60,9 +43,10 @@ export default function Formulario() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!validateForm()) {
-      return; // No envía si hay errores
-    }
+    if (!validateForm()) return;
+
+    setIsLoading(true); // Mostrar "cargando"
+    setSubmitMessage(""); // Limpiar mensaje anterior
 
     const horarioEnvio = new Date().toLocaleString("es-AR", {
       timeZone: "America/Argentina/Cordoba",
@@ -76,8 +60,10 @@ export default function Formulario() {
         body: JSON.stringify(dataToSend),
       });
 
+      const data = await response.json(); // Leer la respuesta del backend
+
       if (response.ok) {
-        alert("Gracias por tu consulta. Nos comunicaremos contigo pronto.");
+        setSubmitMessage(data.message || "Datos enviados con éxito. Nos contactaremos pronto.");
         setFormData({
           nombre: "",
           edad: "",
@@ -89,11 +75,13 @@ export default function Formulario() {
         });
         setErrors({});
       } else {
-        alert("Error al enviar el formulario");
+        setSubmitMessage(data.error || "Error al enviar el formulario");
       }
     } catch (error) {
       console.error("Error:", error);
-      alert("Error al enviar el formulario");
+      setSubmitMessage("Error al enviar el formulario. Intentá de nuevo.");
+    } finally {
+      setIsLoading(false); // Quitar "cargando"
     }
   };
 
@@ -112,6 +100,7 @@ export default function Formulario() {
             onChange={handleChange}
             required
             className="w-full p-2 border rounded text-gray-900 placeholder-gray-500"
+            disabled={isLoading} // Deshabilitar mientras carga
           />
           {errors.nombre && <p className="text-red-500 text-sm">{errors.nombre}</p>}
         </div>
@@ -126,6 +115,7 @@ export default function Formulario() {
             min="0"
             max="120"
             className="w-full p-2 border rounded text-gray-900 placeholder-gray-500"
+            disabled={isLoading}
           />
           {errors.edad && <p className="text-red-500 text-sm">{errors.edad}</p>}
         </div>
@@ -138,6 +128,7 @@ export default function Formulario() {
             onChange={handleChange}
             required
             className="w-full p-2 border rounded text-gray-900 placeholder-gray-500"
+            disabled={isLoading}
           />
           {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
         </div>
@@ -150,6 +141,7 @@ export default function Formulario() {
             onChange={handleChange}
             required
             className="w-full p-2 border rounded text-gray-900 placeholder-gray-500"
+            disabled={isLoading}
           />
           {errors.telefono && <p className="text-red-500 text-sm">{errors.telefono}</p>}
         </div>
@@ -160,6 +152,7 @@ export default function Formulario() {
             onChange={handleChange}
             required
             className="w-full p-2 border rounded text-gray-900"
+            disabled={isLoading}
           >
             <option value="">Seleccionar Interés</option>
             <option value="Capitados">Capitados</option>
@@ -174,6 +167,7 @@ export default function Formulario() {
             onChange={handleChange}
             required
             className="w-full p-2 border rounded text-gray-900"
+            disabled={isLoading}
           >
             <option value="">¿Para quién es?</option>
             <option value="Para mí">Para mí</option>
@@ -184,11 +178,19 @@ export default function Formulario() {
         </div>
         <button
           type="submit"
-          className="w-full bg-mr-primary text-white p-2 rounded hover:bg-mr-secondary"
+          className={`w-full p-2 rounded text-white ${
+            isLoading ? "bg-gray-400 cursor-not-allowed" : "bg-mr-primary hover:bg-mr-secondary"
+          }`}
+          disabled={isLoading}
         >
-          Enviar
+          {isLoading ? "Enviando..." : "Enviar"}
         </button>
       </form>
+      {submitMessage && (
+        <p className={`text-center mt-4 ${submitMessage.includes("éxito") ? "text-green-500" : "text-red-500"}`}>
+          {submitMessage}
+        </p>
+      )}
     </div>
   );
 }
