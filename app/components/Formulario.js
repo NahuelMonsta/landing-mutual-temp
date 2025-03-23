@@ -41,49 +41,54 @@ export default function Formulario() {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    if (!validateForm()) return;
+  if (!validateForm()) return;
 
-    setIsLoading(true); // Mostrar "cargando"
-    setSubmitMessage(""); // Limpiar mensaje anterior
+  console.log("Iniciando envío, isLoading debería ser true");
+  setIsLoading(true); // Activar "cargando"
+  setSubmitMessage(""); // Limpiar mensaje anterior
 
-    const horarioEnvio = new Date().toLocaleString("es-AR", {
-      timeZone: "America/Argentina/Cordoba",
+  // Forzar actualización de la UI con un pequeño retraso
+  await new Promise(resolve => setTimeout(resolve, 100));
+
+  const horarioEnvio = new Date().toLocaleString("es-AR", {
+    timeZone: "America/Argentina/Cordoba",
+  });
+  const dataToSend = { ...formData, horario: horarioEnvio };
+
+  try {
+    const response = await fetch("/api/enviarFormulario", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dataToSend),
     });
-    const dataToSend = { ...formData, horario: horarioEnvio };
 
-    try {
-      const response = await fetch("/api/enviarFormulario", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dataToSend),
+    const data = await response.json();
+
+    if (response.ok) {
+      setSubmitMessage("¡Gracias por tu consulta a La Mutual Riocuartense ! Nos comunicaremos pronto.");
+      setFormData({
+        nombre: "",
+        edad: "",
+        email: "",
+        telefono: "",
+        interes: "",
+        paraQuien: "",
+        horario: "",
       });
-
-      const data = await response.json(); // Leer la respuesta del backend
-
-      if (response.ok) {
-        setSubmitMessage(data.message || "Datos enviados con éxito. Nos contactaremos pronto.");
-        setFormData({
-          nombre: "",
-          edad: "",
-          email: "",
-          telefono: "",
-          interes: "",
-          paraQuien: "",
-          horario: "",
-        });
-        setErrors({});
-      } else {
-        setSubmitMessage(data.error || "Error al enviar el formulario");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      setSubmitMessage("Error al enviar el formulario. Intentá de nuevo.");
-    } finally {
-      setIsLoading(false); // Quitar "cargando"
+      setErrors({});
+    } else {
+      setSubmitMessage(data.error || "Error al enviar el formulario. Intentá de nuevo.");
     }
-  };
+  } catch (error) {
+    console.error("Error:", error);
+    setSubmitMessage("Error al enviar el formulario. Intentá de nuevo.");
+  } finally {
+    console.log("Envío terminado, isLoading debería ser false");
+    setIsLoading(false); // Quitar "cargando"
+  }
+};
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white bg-opacity-80 rounded-lg shadow-lg">
