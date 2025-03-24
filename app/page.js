@@ -14,14 +14,12 @@ export default function Home() {
       <section className="pt-28 pb-16 px-6 md:px-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg uppercase">
-            Una mutual que está presente, que cumple y que piensa en su gente
+            Una mutual presente, comprometida y cercana.
           </h1>
-          <p className="text-base md:text-lg mb-6 drop-shadow-md">
-            En la Mutual Riocuartense, hacemos las cosas simples y claras. Brindamos beneficios en salud que realmente funcionan, sin vueltas ni letra chica. Estamos cerca de nuestros socios, ofreciendo descuentos en consultas, farmacias y servicios esenciales, porque entendemos lo que necesitan.
-          </p>
           <p className="text-base md:text-lg mb-8 drop-shadow-md">
-            Somos de Río Cuarto, conocemos a nuestra gente y cumplimos con lo que prometemos. Acá no hay sorpresas, solo soluciones reales para cuidar tu bienestar y el de tu familia.
+            En la Mutual Riocuartense ofrecemos beneficios en salud con transparencia y compromiso. Brindamos soluciones accesibles y confiables, acompañando a nuestros socios con cercanía y responsabilidad.
           </p>
+          
           <Link
             href="/#contacto"
             className="inline-block bg-white text-mr-primary py-3 px-8 rounded-full font-semibold hover:bg-gray-100 transition shadow-md hover:shadow-lg"
