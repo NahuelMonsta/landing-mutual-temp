@@ -3,7 +3,7 @@
 
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { useState, useCallback } from "react"; // Quité useEffect, ya no necesitamos el temporizador
+import { useState, useCallback, useEffect, useRef } from "react"; // Añadí useRef
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -19,9 +19,25 @@ export default function RootLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const pathname = usePathname();
+  const servicesRef = useRef(null); // Referencia al contenedor de Servicios
 
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
   const toggleServices = useCallback(() => setIsServicesOpen((prev) => !prev), []);
+
+  // Cerrar el submenú al hacer clic fuera
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (servicesRef.current && !servicesRef.current.contains(event.target)) {
+        setIsServicesOpen(false);
+      }
+    };
+    if (isServicesOpen) {
+      document.addEventListener("click", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isServicesOpen]);
 
   return (
     <html lang="es" suppressHydrationWarning>
@@ -39,7 +55,7 @@ export default function RootLayout({ children }) {
             </Link>
           </div>
           <nav className="hidden md:flex flex-grow justify-end items-center space-x-4">
-            <div className="relative">
+            <div className="relative" ref={servicesRef}>
               <button
                 onClick={toggleServices}
                 className={`text-white hover:text-mr-secondary ${
@@ -106,7 +122,6 @@ export default function RootLayout({ children }) {
                   alt="Facebook"
                   width={24}
                   height={24}
-                  className="transition-colors duration-300 hover:filter hover:[filter:hue-rotate(190deg)_saturate(300%)]"
                 />
               </a>
               <a href="https://www.instagram.com/mutualriocuartense/" target="_blank" rel="noopener noreferrer">
@@ -115,7 +130,6 @@ export default function RootLayout({ children }) {
                   alt="Instagram"
                   width={24}
                   height={24}
-                  className="transition-colors duration-300 hover:filter hover:[filter:hue-rotate(320deg)_saturate(300%)]"
                 />
               </a>
               <a href="https://wa.me/543584637428" target="_blank" rel="noopener noreferrer">
@@ -124,7 +138,6 @@ export default function RootLayout({ children }) {
                   alt="WhatsApp"
                   width={24}
                   height={24}
-                  className="transition-colors duration-300 hover:filter hover:[filter:hue-rotate(100deg)_saturate(300%)]"
                 />
               </a>
             </div>
