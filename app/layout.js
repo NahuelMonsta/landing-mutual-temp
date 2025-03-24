@@ -3,7 +3,7 @@
 
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react"; // Añadí useEffect
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -23,23 +23,38 @@ export default function RootLayout({ children }) {
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
   const toggleServices = useCallback(() => setIsServicesOpen((prev) => !prev), []);
 
+  // Temporizador para cerrar el submenú en desktop
+  useEffect(() => {
+    let timer;
+    if (isServicesOpen && !isMenuOpen) { // Solo en desktop, no en móvil
+      timer = setTimeout(() => {
+        setIsServicesOpen(false);
+      }, 2000); // 2 segundos
+    }
+    return () => clearTimeout(timer);
+  }, [isServicesOpen]);
+
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <body className={`${montserrat.variable} with-png flex flex-col min-h-screen`}>
         <header className="fixed top-0 left-0 w-full bg-mr-primary shadow-md z-50 p-4 flex justify-between items-center">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 flex-shrink-0">
             <Link href="/">
               <Image
                 src="/LogosImagenes/logocompleto.png"
                 alt="Mutual Riocuartense"
                 width={300}
                 height={57}
-                className="cursor-pointer w-[240px] md:w-[300px]" // 20% más chico en móviles
+                className="cursor-pointer w-[240px] md:w-[300px]"
               />
             </Link>
           </div>
-          <nav className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-6">
-            <div className="relative">
+          <nav className="hidden md:flex flex-grow justify-center space-x-6">
+            <div
+              className="relative"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
               <button
                 onClick={toggleServices}
                 className={`text-white hover:text-mr-secondary ${

@@ -11,9 +11,9 @@ export const metadata = {
 export default function Home() {
   return (
     <main className="text-gray-900">
-      <section className="pt-24 pb-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
+      <section className="pt-28 pb-16 px-6 md:px-12 text-center bg-gradient-to-r from-mr-primary via-mr-secondary to-mr-primary text-white relative overflow-hidden border-b-4 border-white/20">
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 drop-shadow-lg uppercase">
             Una mutual que está presente, que cumple y que piensa en su gente
           </h1>
           <p className="text-base md:text-lg mb-6 drop-shadow-md">
@@ -53,20 +53,22 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-12 px-4 max-w-4xl mx-auto text-center bg-gray-100">
-        <h2 className="text-3xl font-semibold gradient-title mb-6">Qué dicen nuestros socios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-700 mb-2">
-              «Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses.»
-            </p>
-            <p className="font-semibold text-gray-800">María G. - Río Cuarto</p>
-          </div>
-          <div className="bg-white p-4 rounded-lg shadow">
-            <p className="text-gray-700 mb-2">
-              «El servicio de emergencias me salvó en un momento crítico. Excelente atención.»
-            </p>
-            <p className="font-semibold text-gray-800">Juan P. - Las Higueras</p>
+      <section className="py-16 px-4 max-w-4xl mx-auto text-center">
+        <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-semibold gradient-title mb-6">Qué dicen nuestros socios</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white p-4 rounded-lg shadow">
+              <p className="text-gray-700 mb-2">
+                «Gracias a Mutual Riocuartense, tengo tranquilidad y ahorro todos los meses.»
+              </p>
+              <p className="font-semibold text-gray-800">María G. - Río Cuarto</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg shadow">
+              <p className="text-gray-700 mb-2">
+                «El servicio de emergencias me salvó en un momento crítico. Excelente atención.»
+              </p>
+              <p className="font-semibold text-gray-800">Juan P. - Las Higueras</p>
+            </div>
           </div>
         </div>
       </section>
