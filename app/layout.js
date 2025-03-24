@@ -3,7 +3,7 @@
 
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { useState, useCallback, useEffect } from "react"; // Añadí useEffect
+import { useState, useCallback } from "react"; // Quité useEffect, ya no necesitamos el temporizador
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -23,17 +23,6 @@ export default function RootLayout({ children }) {
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
   const toggleServices = useCallback(() => setIsServicesOpen((prev) => !prev), []);
 
-  // Temporizador para cerrar el submenú en desktop
-  useEffect(() => {
-    let timer;
-    if (isServicesOpen && !isMenuOpen) { // Solo en desktop, no en móvil
-      timer = setTimeout(() => {
-        setIsServicesOpen(false);
-      }, 2000); // 2 segundos
-    }
-    return () => clearTimeout(timer);
-  }, [isServicesOpen]);
-
   return (
     <html lang="es" suppressHydrationWarning>
       <body className={`${montserrat.variable} with-png flex flex-col min-h-screen`}>
@@ -49,12 +38,8 @@ export default function RootLayout({ children }) {
               />
             </Link>
           </div>
-          <nav className="hidden md:flex flex-grow justify-center space-x-6">
-            <div
-              className="relative"
-              onMouseEnter={() => setIsServicesOpen(true)}
-              onMouseLeave={() => setIsServicesOpen(false)}
-            >
+          <nav className="hidden md:flex flex-grow justify-end items-center space-x-4">
+            <div className="relative">
               <button
                 onClick={toggleServices}
                 className={`text-white hover:text-mr-secondary ${
@@ -64,7 +49,7 @@ export default function RootLayout({ children }) {
                 Servicios
               </button>
               {isServicesOpen && (
-                <div className="absolute top-full left-0 bg-mr-primary text-white rounded-md shadow-lg mt-2">
+                <div className="absolute top-full left-0 bg-mr-primary text-white rounded-md shadow-lg mt-2 opacity-100 transition-opacity duration-300">
                   <Link
                     href="/servicios/capitados"
                     className="block px-4 py-2 hover:bg-mr-secondary"
@@ -114,18 +99,36 @@ export default function RootLayout({ children }) {
             >
               Contacto
             </Link>
+            <div className="flex items-center space-x-4 ml-4">
+              <a href="https://facebook.com/MutualRiocuartense/" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/LogosImagenes/facebookNegro.png"
+                  alt="Facebook"
+                  width={24}
+                  height={24}
+                  className="transition-colors duration-300 hover:filter hover:[filter:hue-rotate(190deg)_saturate(300%)]"
+                />
+              </a>
+              <a href="https://www.instagram.com/mutualriocuartense/" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/LogosImagenes/instagram.png"
+                  alt="Instagram"
+                  width={24}
+                  height={24}
+                  className="transition-colors duration-300 hover:filter hover:[filter:hue-rotate(320deg)_saturate(300%)]"
+                />
+              </a>
+              <a href="https://wa.me/543584637428" target="_blank" rel="noopener noreferrer">
+                <Image
+                  src="/LogosImagenes/whatsapp.png"
+                  alt="WhatsApp"
+                  width={24}
+                  height={24}
+                  className="transition-colors duration-300 hover:filter hover:[filter:hue-rotate(100deg)_saturate(300%)]"
+                />
+              </a>
+            </div>
           </nav>
-          <div className="hidden md:flex items-center space-x-4">
-            <a href="https://facebook.com/MutualRiocuartense/" target="_blank" rel="noopener noreferrer">
-              <Image src="/LogosImagenes/facebookNegro.png" alt="Facebook" width={24} height={24} />
-            </a>
-            <a href="https://www.instagram.com/mutualriocuartense/" target="_blank" rel="noopener noreferrer">
-              <Image src="/LogosImagenes/instagram.png" alt="Instagram" width={24} height={24} />
-            </a>
-            <a href="https://wa.me/543584637428" target="_blank" rel="noopener noreferrer">
-              <Image src="/LogosImagenes/whatsapp.png" alt="WhatsApp" width={24} height={24} />
-            </a>
-          </div>
           <div className="md:hidden">
             <button className="text-white text-2xl" onClick={toggleMenu}>
               ≡
@@ -142,7 +145,7 @@ export default function RootLayout({ children }) {
                     Servicios
                   </button>
                   {isServicesOpen && (
-                    <div className="flex flex-col items-center space-y-2 mt-2">
+                    <div className="flex flex-col items-center space-y-2 mt-2 transition-opacity duration-300">
                       <Link
                         href="/servicios/capitados"
                         className="text-white hover:text-mr-secondary"
