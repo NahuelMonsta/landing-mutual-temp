@@ -35,3 +35,6 @@ body.with-png {
   @apply text-white;
   text-shadow: 0 1px 2px #6269C4; /* Sombra violeta */
 }
+.gradient-vertical {
+  background: linear-gradient(to bottom, #25D366, #800080);
+}

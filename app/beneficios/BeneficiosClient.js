@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 export default function BeneficiosClient() {
   const [enlargedImage, setEnlargedImage] = useState(null);
 
-  const defaultImage = "/LogosImagenes/LogoMutuBco.png"; // Ruta corregida (asumiendo que está en /public/LogosImagenes/)
+  const defaultImage = "/LogosImagenes/LogoMutuBco.png"; // Ruta asumida
 
   const beneficios = [
     {
@@ -32,15 +32,15 @@ export default function BeneficiosClient() {
       title: "Emergencias Cubiertas",
       description: "Atención médica inmediata y traslados sin costo.",
       category: "Salud",
-      image: defaultImage, // Usamos la imagen por defecto directamente
-      originalImage: "/BeneficiosImagenes/emergencias.jpg", // Guardamos la original por referencia
+      image: defaultImage,
+      originalImage: "/BeneficiosImagenes/emergencias.jpg",
     },
     {
       title: "Planes Flexibles",
       description: "Opciones para vos, tu familia o seres queridos.",
       category: "Salud",
-      image: defaultImage, // Usamos la imagen por defecto directamente
-      originalImage: "/BeneficiosImagenes/planes.jpg", // Guardamos la original por referencia
+      image: defaultImage,
+      originalImage: "/BeneficiosImagenes/planes.jpg",
     },
   ];
 
@@ -54,7 +54,6 @@ export default function BeneficiosClient() {
     }
   };
 
-  // Cerrar el modal con la tecla Escape
   useEffect(() => {
     const handleEsc = (e) => {
       if (e.key === "Escape") {
@@ -70,7 +69,7 @@ export default function BeneficiosClient() {
       <h1 className="text-3xl font-bold white-title mb-8">Beneficios</h1>
       <div className="bg-white bg-opacity-90 p-8 rounded-lg shadow-lg">
         <p className="text-lg text-gray-700 mb-8">
-          Descubrí las promociones y beneficios exclusivos para socios de la Mutual Riocuartense.
+          Descubrí las promociones y beneficios exclusivos para socios de la Mutual Riocuantense.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {beneficios.map((beneficio, index) => (
@@ -85,13 +84,12 @@ export default function BeneficiosClient() {
                 <Image
                   src={beneficio.image}
                   alt={beneficio.title}
-                  width={150}
-                  height={100}
+                  width={80} // Reducido de 100 a 80
+                  height={60} // Reducido de 75 a 60
                   loading="lazy"
                   placeholder="blur"
                   blurDataURL={defaultImage}
-                  className="mb-4 object-contain rounded-md"
-                  style={{ background: "linear-gradient(to right, #003087, #005EB8, #003087)" }} // Degradado como estilo inline
+                  className="mb-4 object-contain rounded-md gradient-vertical"
                   onError={(e) => {
                     e.target.src = defaultImage;
                   }}
@@ -118,10 +116,9 @@ export default function BeneficiosClient() {
             <Image
               src={beneficios[enlargedImage].image}
               alt={beneficios[enlargedImage].title}
-              width={500}
-              height={300}
-              className="object-contain mx-auto rounded-md"
-              style={{ background: "linear-gradient(to right, #003087, #005EB8, #003087)" }} // Degradado como estilo inline
+              width={250} // Reducido de 300 a 250
+              height={150} // Reducido de 200 a 150
+              className="object-contain mx-auto rounded-md gradient-vertical"
               onError={(e) => {
                 e.target.src = defaultImage;
               }}
