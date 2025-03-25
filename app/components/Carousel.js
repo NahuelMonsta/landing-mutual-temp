@@ -1,4 +1,5 @@
 // app/components/Carousel.js
+// Cambio para forzar deploy
 "use client";
 
 import { useState, useEffect, useRef } from "react";
