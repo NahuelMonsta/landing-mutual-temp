@@ -132,7 +132,7 @@ export default function RootLayout({ children }) {
                   height={24}
                 />
               </a>
-              <a href="https://wa.me/543584637428" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/message/IOPTLGSVWTDNI1" target="_blank" rel="noopener noreferrer">
                 <Image
                   src="/LogosImagenes/whatsapp.png"
                   alt="WhatsApp"
