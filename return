@@ -1,0 +1,225 @@
+[33mcommit 0acc868a562f6a7228342525e561edf6880cccde[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31mtemp/main[m[33m, [m[1;31mtemp/HEAD[m[33m)[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Mon Mar 24 14:47:14 2025 -0300
+
+    se cambio el hero
+
+[33mcommit 76e4d35056e9de236b1ee83071816ea3cd0e01c3[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 22:40:05 2025 -0300
+
+    Muevo degradado a CSS y reduzco tamaño logo en beneficios
+
+[33mcommit 759431ecda53df15a94693c3ee243d4f1be55232[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 22:22:08 2025 -0300
+
+    Seteo imagen default directa para evitar loop 404 en beneficios
+
+[33mcommit aaf722a1b32bffd6593d80bc5c5b43ceb7cb3391[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 22:03:29 2025 -0300
+
+    Ajusto menu Servicios para cerrar al clic fuera con transicion
+
+[33mcommit 36a35eae227d9502e069b1d5b71871d653c026eb[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 21:41:28 2025 -0300
+
+    Ajusto menu Servicios a clic con transicion y pruebo colores redes
+
+[33mcommit dd0f91dcc7fbb051c7eab1e6f99b82deb288133c[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 21:22:37 2025 -0300
+
+    Unifico estilo y margenes de Por que elegirnos y Que dicen nuestros socios y arreglo a layout
+
+[33mcommit de8b8a1dc2e3b40e542138896be8fa019c22bc07[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 20:29:20 2025 -0300
+
+    Corrijo coma faltante en urgencias/page.js para arreglar build
+
+[33mcommit 6c917c563c31a0acb8fb1c9dd93d1840843d3e42[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 20:12:49 2025 -0300
+
+    Agrego asento en contultá de formulario
+
+[33mcommit 60c89929d407ce5e27a5cf6e5302b66af153fc52[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 19:57:35 2025 -0300
+
+    Aseguro ultimos cambios en Formulario y layout
+
+[33mcommit 5829991f7f4fd418484e6756341cab2ddc537688[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 18:03:39 2025 -0300
+
+    Mejoro logs en API de formulario para diagnosticar error 500
+
+[33mcommit ae0456702a74e8d02002388569a956714b74800a[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 17:51:54 2025 -0300
+
+    Cambio 'Seleccionar Interes' por 'Selecciona un plan' y reduzco logo 20% en moviles
+
+[33mcommit 96fbb5db282210bbab359e24a9a5b58e3a972781[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 17:44:18 2025 -0300
+
+    Reduzco altura del carrusel en moviles y tamano de letras en hero
+
+[33mcommit 5bcb2da2adbcdec5cf371142b95858e15e25de9e[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 17:43:36 2025 -0300
+
+    Reduzco altura del carrusel en moviles y tamano de letras en hero
+
+[33mcommit 6c64800cb755cddbd870116aab07e6b60705216e[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 17:34:16 2025 -0300
+
+    Ajusto formulario, titulos, comentarios y menu movil
+
+[33mcommit 85e8f13676e6248e9df1f8e9c79ca9a6dc953abb[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 16:54:23 2025 -0300
+
+    Desactivo ESLint en build para evitar error de comillas en Vercel
+
+[33mcommit f2b850a1cebf056605cb2ce28cdb51269469f8dd[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 16:11:07 2025 -0300
+
+    Corrijo comillas sin escapar con barra invertida en page.js para Vercel
+
+[33mcommit e8bd131f5827489316fb7033f249d3309adb8562[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 16:04:08 2025 -0300
+
+    Corrijo comillas sin escapar en page.js para build en Vercel
+
+[33mcommit afdab24f43139c34c491be1f0c51e60b90e0f8b4[m[33m ([m[1;32mchatgpt-version[m[33m)[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 15:10:01 2025 -0300
+
+    Agrego estado cargando y mejoro feedback
+
+[33mcommit d29e603a8971f82ff658b63a8bf3e94ac40b0b07[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 14:59:37 2025 -0300
+
+    Mejoro feedback del formulario con loading y mensajes claros
+
+[33mcommit 9dbdf7ebc8e18a8e37d9fe6ddbc7779fbba11921[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 14:48:39 2025 -0300
+
+    Commit inicial para landing-mutual-temp
+
+[33mcommit 44875195f11fa20966fffcf17aa42b69b33a508c[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sun Mar 23 14:38:22 2025 -0300
+
+    Actualizo .gitignore y preparo para GitHub
+
+[33mcommit e5df34995db38122116f613cd8079fcc1e03fdde[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Thu Mar 20 18:37:30 2025 -0300
+
+    Números de teléfono clicables en Urgencias para dispositivos móviles
+
+[33mcommit 8eb4dc431f23116abd07625076f996891fa345c3[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Thu Mar 20 18:34:39 2025 -0300
+
+    Grilla de servicios en Urgencias con formato similar a Beneficios
+
+[33mcommit 8c3c82d8d8bb3cf04e6f3844a0c03c6946554790[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Thu Mar 20 17:59:56 2025 -0300
+
+    Grilla de beneficios con miniaturas para kinesiología y perfumería
+
+[33mcommit 0bfbadd502a0b1b1c572c5fa9575aacb2cbb2452[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Tue Mar 18 23:01:03 2025 -0300
+
+    Landing completa con imports absolutos
+
+[33mcommit c9dff2ea8ae785672ddf9eb287534f6809aaf401[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Mon Mar 17 21:15:54 2025 -0300
+
+    Página Farmacias con mapa y botón para PDF
+
+[33mcommit 55866a454d6f793a74b2fca26b55843f11770a97[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Mon Mar 17 20:48:21 2025 -0300
+
+    Botones agregados en Capitados y Plan de Salud
+
+[33mcommit 7fc2b88ed9c2cba8f0ed0c85233e3b3a5059b26f[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Mon Mar 17 20:02:26 2025 -0300
+
+    Formulario funcionando con Google Sheets
+
+[33mcommit 5074d229337b077d16bbb6eb4d98bb9a393c6dc3[m[33m ([m[1;31morigin/chatgpt-version[m[33m)[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sat Mar 15 21:16:40 2025 -0300
+
+    usan otro grok se hizo las paginas de los servicios y de formulario
+
+[33mcommit 47f37464a364764dab7c7d847d6d8321cedc9c9a[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sat Mar 15 12:11:52 2025 -0300
+
+    Ajustó carrusel, hizo servicios clicables y agregó desplegable en header en chatgpt-version
+
+[33mcommit fd3911ff54d67f0acfa57865bb9251cdf868a3f8[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Sat Mar 15 10:57:59 2025 -0300
+
+    Corrigió error de metadata moviendo carrusel a componente separado en chatgpt-version
+
+[33mcommit 60182572a9c87d226f7f51fe2c59fce512685153[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Fri Mar 14 13:37:33 2025 -0300
+
+    Eliminó import React duplicado en page.js para build exitoso en chatgpt-version
+
+[33mcommit 53c357c6f9c35bb537f7306ed971bd5504ff53b5[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Fri Mar 14 13:04:25 2025 -0300
+
+    Eliminó import React duplicado en page.js en chatgpt-version
+
+[33mcommit 2ffd437e2e2d393a3ab61c78ef1be176351e0c1f[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Fri Mar 14 12:24:22 2025 -0300
+
+    Corrigió comillas sin escapar en page.js líneas 45, 173, 176 en chatgpt-version
+
+[33mcommit 416e378288cb41b3aa2c2264c0d95c99e7ac756e[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Wed Mar 12 18:00:30 2025 -0300
+
+    Textos específicos en blanco con sombra #6269C4 en chatgpt-version
+
+[33mcommit 4769ae86dfc3996cf05abeda16d1cb3405a6fc3c[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Wed Mar 12 12:22:43 2025 -0300
+
+    Actualizar Servicios y Beneficios con textos confirmados, agregar favicon y ajustar header (space-x-8, text-lg)
+
+[33mcommit f938d871ae748e3820274d7a8a0c17440f6d6c9e[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date:   Tue Mar 11 22:11:48 2025 -0300
+
+    Reorganicé header (logo izq, menú centro, redes der) y footer horizontal en chatgpt-version
+
+[33mcommit 1f88a63e28484612943ec4c0176840ba484a25e5[m
+Author: Nahuel <mutuallariocuartense@gmail.com>
+Date: 
