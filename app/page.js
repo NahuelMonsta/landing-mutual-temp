@@ -52,18 +52,19 @@ export default function Home() {
           <h2 className="text-3xl font-semibold gradient-title mb-8">¿Por qué elegirnos?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">DESCUENTOS EN FARMACIAS</h3>
-              <p className="text-gray-700">50% off en medicamentos en más de 30 farmacias adheridas.</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2 uppercase">50% DE DESCUENTO EN MEDICAMENTOS</h3>
+              <p className="text-gray-700 text-lg">Más de 30 farmacias adheridas para que ahorres en cada compra.</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">EMERGENCIAS CUBIERTAS</h3>
-              <p className="text-gray-700">Atención médica inmediata y traslados sin costo.</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2 uppercase">EMERGENCIAS Y TRASLADOS SIN COSTO</h3>
+              <p className="text-gray-700 text-lg">Atención médica inmediata cuando más la necesitás.</p>
             </div>
             <div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">PLANES FLEXIBLES</h3>
-              <p className="text-gray-700">Opciones para vos, tu familia o seres queridos.</p>
+              <h3 className="text-xl font-semibold text-gray-800 mb-2 uppercase">PLANES ACCESIBLES Y FLEXIBLES</h3>
+              <p className="text-gray-700 text-lg">Pensados para vos, tu familia y seres queridos, sin preexistencias.</p>
             </div>
           </div>
+          <p className="text-gray-700 mt-6">Más beneficios, más tranquilidad. Sumate hoy.</p>
         </div>
       </section>
 
