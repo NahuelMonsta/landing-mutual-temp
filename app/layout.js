@@ -3,7 +3,7 @@
 
 import "./globals.css";
 import { Montserrat } from "next/font/google";
-import { useState, useCallback, useEffect, useRef } from "react"; // Añadí useRef
+import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -19,12 +19,11 @@ export default function RootLayout({ children }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const pathname = usePathname();
-  const servicesRef = useRef(null); // Referencia al contenedor de Servicios
+  const servicesRef = useRef(null);
 
   const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
   const toggleServices = useCallback(() => setIsServicesOpen((prev) => !prev), []);
 
-  // Cerrar el submenú al hacer clic fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (servicesRef.current && !servicesRef.current.contains(event.target)) {
@@ -223,6 +222,18 @@ export default function RootLayout({ children }) {
           </div>
         </header>
         <main className="flex-grow pt-20">{children}</main>
+        {/* Íconos de redes antes del footer */}
+        <div className="flex justify-center space-x-4 py-4 bg-white">
+          <a href="https://facebook.com/MutualRiocuartense/" target="_blank" rel="noopener noreferrer">
+            <Image src="/LogosImagenes/facebookNegro.png" alt="Facebook" width={32} height={32} />
+          </a>
+          <a href="https://www.instagram.com/mutualriocuartense/" target="_blank" rel="noopener noreferrer">
+            <Image src="/LogosImagenes/instagram.png" alt="Instagram" width={32} height={32} />
+          </a>
+          <a href="https://wa.me/message/IOPTLGSVWTDNI1" target="_blank" rel="noopener noreferrer">
+            <Image src="/LogosImagenes/whatsapp.png" alt="WhatsApp" width={32} height={32} />
+          </a>
+        </div>
         <footer className="bg-mr-primary text-white py-8 px-4">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0 md:space-x-4 text-center">
             <div className="flex flex-col items-center min-w-[100px] flex-1">
@@ -235,7 +246,12 @@ export default function RootLayout({ children }) {
               />
               <p>Belgrano 17, piso 11</p>
               <p>Río Cuarto, Argentina</p>
-              <p>+54 358 463-7428</p>
+              <p>
+                <a href="tel:+543584018605" className="hover:underline">+54 358 401-8605</a>
+              </p>
+              <p>
+                <a href="tel:+543585752094" className="hover:underline">+54 358 575-2094</a>
+              </p>
               <p>mutuallariocuartense@gmail.com</p>
             </div>
             <div className="flex flex-col items-center min-w-[100px] flex-1">
@@ -248,7 +264,9 @@ export default function RootLayout({ children }) {
               />
               <p>Alvear 1450, Centro</p>
               <p>X5800BES Río Cuarto, Córdoba</p>
-              <p>0358 464-0404</p>
+              <p>
+                <a href="tel:+543584640404" className="hover:underline">+54 358 464-0404</a>
+              </p>
             </div>
             <div className="flex flex-col items-center min-w-[100px] flex-1">
               <Image
@@ -260,7 +278,9 @@ export default function RootLayout({ children }) {
               />
               <p>Sanatorio privado</p>
               <p>Bv. General Roca, Centro 949</p>
-              <p>0358 467-5800</p>
+              <p>
+                <a href="tel:+543584675800" className="hover:underline">+54 358 467-5800</a>
+              </p>
             </div>
           </div>
         </footer>

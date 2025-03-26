@@ -6,6 +6,22 @@ import Formulario from "/app/components/Formulario.js";
 export const metadata = {
   title: "Mutual Riocuartense - Beneficios en Salud que Cumplen",
   description: "Una mutual de Río Cuarto que ofrece soluciones reales en salud, sin letra chica",
+  openGraph: {
+    title: "Mutual Riocuartense",
+    description: "Explorá nuestros servicios y beneficios",
+    url: "https://landing-mutual-temp-nahus-projects-7d71f0e3.vercel.app",
+    siteName: "Mutual Riocuartense",
+    images: [
+      {
+        url: "/favicon.ico", // Asegurate de que esté en public/
+        width: 32,
+        height: 32,
+        alt: "Favicon de Mutual Riocuartense",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
 };
 
 export default function Home() {
